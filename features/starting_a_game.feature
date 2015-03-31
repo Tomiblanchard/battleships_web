@@ -7,9 +7,15 @@ Scenario: Beginning a game
   Given I am on the homepage
   When I follow "New Game"
   Then I should see "What's your name?"
-  
+
 Scenario: Registering
   Given I am on the new game page
   When I type in "name" with "Tomi"
   And I click "Register"
   Then I should see "Welcome, Tomi"
+
+Scenario: Registering
+  Given I am on the new game page
+  When I type in "name" with ""
+  And I click "Register"
+  Then I should see "Welcome to your Battleship game!"
