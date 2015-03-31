@@ -27,3 +27,9 @@ end
 When(/^I type in "([^"]*)" with nil$/) do |field|
   fill_in(field, :with => "")
 end
+
+
+Then(/^I should see a board$/) do
+  expect(page).to have_css('table')
+end
+

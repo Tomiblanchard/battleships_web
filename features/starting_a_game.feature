@@ -14,8 +14,14 @@ Scenario: Registering
   And I click "Register"
   Then I should see "Welcome, Tomi"
 
-Scenario: Registering
+Scenario: Registering without a name
   Given I am on the new game page
   When I type in "name" with ""
   And I click "Register"
   Then I should see "Welcome to your Battleship game!"
+
+Scenario: Seeing a game board
+  Given I am on the new game page
+  When I click "Register"
+  Then I should see a board
+
