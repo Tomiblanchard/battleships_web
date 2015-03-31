@@ -5,6 +5,10 @@
     <input type="submit" value="Register">
   </form>
 
-<% if @name %>
+<% if @name.nil? %>
+<h2>Welcome to Battleships!</h2>
+<% elsif @name.empty? %>
+<h2>Welcome to your Battleship game!</h2>
+<% elsif @name %>
 <h2>Welcome, <%= @name %></h2>
 <% end %>

@@ -22,3 +22,8 @@ end
 When(/^I click "([^"]*)"$/) do |button|
   click_button button
 end
+
+
+When(/^I type in "([^"]*)" with nil$/) do |field|
+  fill_in(field, :with => "")
+end
