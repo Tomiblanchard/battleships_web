@@ -1,12 +1,11 @@
 require 'sinatra/base'
-require_relative 'board'
-require_relative 'cell'
-require_relative 'game'
-require_relative 'player'
-require_relative 'ship'
-require_relative 'water'
 
 class Battleships < Sinatra::Base
+
+
+
+  GAME = Game.new
+
   get '/' do
     erb :index
   end
@@ -24,18 +23,12 @@ class Battleships < Sinatra::Base
     erb :new_game
   end
 
-  post '/new_game' do
-    @name = params[:name]
-    erb :new_game
-  end
-
-  get '/hit' do
-  end
-
-  post '/player' do
-  end
-
-  get '/player' do
+  post '/start_game' do
+    first_name
+    player_one = Player.new(params[:first_name])
+    player_two = Player.new("Computer")
+    player_one_board = Board.new({size: 9, cell: Cell, number_of_pieces: 1})
+    player_two_board = Board.new({size:})
   end
 
   set :views, Proc.new {File.join(root, "..", "views")}
