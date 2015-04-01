@@ -10,13 +10,18 @@ Then(/^I should see "([^"]*)"$/) do |text|
   expect(page).to have_content text
 end
 
+Given(/^I am on the login page$/) do
+  visit '/login'
+end
+
 
 Given(/^I am on the new game page$/) do
-  visit '/new_game'
+  visit '/new_page'
 end
 
 When(/^I type in "([^"]*)" with "([^"]*)"$/) do |field, name|
   fill_in(field, :with => name)
+  fill_in(field, :with => "")
 end
 
 When(/^I click "([^"]*)"$/) do |button|
@@ -29,7 +34,6 @@ When(/^I type in "([^"]*)" with nil$/) do |field|
 end
 
 
-Then(/^I should see a board$/) do
-  expect(page).to have_css('table')
+Then(/^I should see the new game page$/) do
+  expect(page).to have_content('table')
 end
-

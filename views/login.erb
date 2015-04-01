@@ -1,0 +1,30 @@
+<h2>What's your name?</h2>
+
+  <form action='/login' method='post'>
+    Name: <input type="text" name="name">
+    <input type="submit" value="Fire">
+  </form>
+
+<div>
+  <% if @name.nil? %>
+
+  <% elsif @name.empty? %>
+    Please register!
+
+  <% elsif @name %>
+
+  <h2>Welcome, <%= @name %></h2>
+
+  <p>Choose your opponent:</p>
+
+  <form action="/player" method="post">
+    <input type="radio" name="opponent" value="human" checked="checked">Human
+    <br>
+    <input type="radio" name="opponent" value="computer">Computer
+  </form>
+  <br>
+
+  And start a new game <a href="/new_game">here</a>.
+
+  <% end %>
+</div>

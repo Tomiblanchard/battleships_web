@@ -5,23 +5,24 @@ Feature: Starting the game
 
 Scenario: Beginning a game
   Given I am on the homepage
-  When I follow "New Game"
+  When I follow "Login"
   Then I should see "What's your name?"
 
 Scenario: Registering
-  Given I am on the new game page
+  Given I am on the login page
   When I type in "name" with "Tomi"
-  And I click "Register"
+  And I click "Fire"
   Then I should see "Welcome, Tomi"
 
 Scenario: Registering without a name
-  Given I am on the new game page
+  Given I am on the login page
   When I type in "name" with ""
-  And I click "Register"
-  Then I should see "Welcome to your Battleship game!"
+  And I click "Fire"
+  Then I should see "Please register!"
 
 Scenario: Seeing a game board
-  Given I am on the new game page
-  When I click "Register"
-  Then I should see a board
-
+  Given I am on the login page
+  When I type in "name" with "Tomi"
+  When I click "Fire"
+  When I follow "here"
+  Then I should see the new game page
